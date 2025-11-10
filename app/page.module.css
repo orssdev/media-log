@@ -1,0 +1,26 @@
+.container {
+  padding: 20px;
+  text-align: center;
+}
+
+.input {
+  padding: 10px;
+  font-size: 16px;
+  margin-right: 10px;
+}
+
+.button {
+  padding: 10px 20px;
+}
+
+.grid {
+  margin-top: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.error {
+  color: red;
+}
