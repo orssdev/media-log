@@ -1,5 +1,5 @@
 
-import styles from '../styles/MovieCard.module.css';
+import styles from './MovieCard.module.css';
 
 interface MovieCardProps {
   title: string;

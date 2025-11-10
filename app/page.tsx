@@ -2,8 +2,8 @@
 
 import { useState } from "react";
 import styles from './page.module.css'
-import MovieCard from "./components/MovieCard";
-import { searchMovies } from "./lib/tmdb";
+import MovieCard from "../components/MovieCard";
+import { searchMovies } from "../lib/tmdb";
 
 export default function Home() {
   const [query, setQuery] = useState('');
