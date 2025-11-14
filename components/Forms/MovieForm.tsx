@@ -7,12 +7,11 @@ interface MovieFormProps {
     query: string;
     setQuery: (value: string) => void;
     setMovies: (movies: any[]) => void;
-    setLoading: (loading: boolean) => void;
     setError: (error: string) => void;
     onSearch: (query: string) => void;
 }
 
-export default function MovieForm({ query, setQuery, setMovies, setLoading, setError, onSearch }: MovieFormProps) {
+export default function MovieForm({ query, setQuery, setMovies, setError, onSearch }: MovieFormProps) {
 
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()

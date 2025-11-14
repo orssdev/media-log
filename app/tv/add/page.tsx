@@ -3,7 +3,7 @@
 import { getPopularMovies, searchTvShows } from "@/lib/tmdb";
 import { useEffect, useState } from "react";
 import TVShowForm from "@/components/Forms/TVShowForm";
-import TVShowCard from "@/components/TVShowCard";
+import TVShowCard from "@/components/Cards/TVShowCard";
 
 export default function AddTVShow() {
     const [query, setQuery] = useState('')
@@ -30,7 +30,7 @@ export default function AddTVShow() {
 
     return (
         <div className="w-full min-h-[800px] h-auto bg-(--color1) bg-linear-to-b from-[#000000] to-[#210304] flex flex-col items-center py-[50px] gap-10 font-e">
-            <TVShowForm query={query} setQuery={setQuery} setShows={setShows} setLoading={setLoading} setError={setError} onSearch={handleSearch}/>
+            <TVShowForm query={query} setQuery={setQuery} setShows={setShows} setError={setError} onSearch={handleSearch}/>
             {loading && <p>Loading...</p>}
             {error && <p>{error}</p>}
             <div className="flex flex-row overflow-x-auto gap-[25px] px-[25px] w-full">

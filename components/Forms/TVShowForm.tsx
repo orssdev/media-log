@@ -7,7 +7,6 @@ interface ShowFormProps {
     query: string;
     setQuery: (value: string) => void;
     setShows: (shows: any[]) => void;
-    setLoading: (loading: boolean) => void;
     setError: (error: string) => void;
     onSearch: (query: string) => void;
 }

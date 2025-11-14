@@ -1,7 +1,7 @@
 'use client'
 
 import MovieForm from "@/components/Forms/MovieForm";
-import MovieCard from "@/components/MovieCard";
+import MovieCard from "@/components/Cards/MovieCard";
 import { searchMovies } from "@/lib/tmdb";
 import { useState } from "react";
 
@@ -30,7 +30,7 @@ export default function AddMovie() {
 
     return (
         <div className="w-full min-h-[800px] h-auto bg-(--color1) bg-linear-to-b from-[#000000] to-[#210304] flex flex-col items-center py-[50px] gap-10 font-e">
-            <MovieForm query={query} setQuery={setQuery} setMovies={setMovies} setLoading={setLoading} setError={setError} onSearch={handleSearch}/>
+            <MovieForm query={query} setQuery={setQuery} setMovies={setMovies} setError={setError} onSearch={handleSearch}/>
             {loading && <p>Loading...</p>}
             {error && <p>{error}</p>}
             <div className="flex flex-row overflow-x-auto gap-[25px] px-[25px] w-full">
