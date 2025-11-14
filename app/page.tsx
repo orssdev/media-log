@@ -7,7 +7,7 @@ export default function Home() {
       <div className="w-full min-h-(--MediaCounter) h-auto flex justify-around">
         <MediaCounter media={'Movies'} count={372} route="/movie"/>
         <MediaCounter media={'Games'} count={294} route="/game"/>
-        <MediaCounter media={'TV Shows'} count={420} route="/tv-show"/>
+        <MediaCounter media={'TV Shows'} count={420} route="/tv"/>
       </div>
     </div>
   );
