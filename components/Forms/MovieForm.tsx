@@ -28,8 +28,6 @@ export default function MovieForm({ query, setQuery, setMovies, setLoading, setE
                     setMovies(results);
                 } catch (err: any) {
                     setError(err.message || 'Error fetching popular movies');
-                } finally {
-                    setLoading(false);
                 }
             }
 
