@@ -1,4 +1,6 @@
 import MediaCounter from "@/components/MediaCounter";
+import SignOutButton from "@/components/SignOutButton";
+import { signOut } from "next-auth/react";
 
 export default function Home() {
 
@@ -11,6 +13,7 @@ export default function Home() {
           <MediaCounter media={'TV Shows'} count={420} route="/tv"/>
         </div>
       </div>
+      <SignOutButton />
     </div>
   );
 }
