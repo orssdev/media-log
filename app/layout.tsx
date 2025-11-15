@@ -3,6 +3,7 @@ import { Electrolize, Bungee_Shade} from "next/font/google";
 import "./globals.css";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
+import Provider from "./Provider";
 
 const electrolize = Electrolize({ 
   variable: "--font-electrolize",
@@ -41,9 +42,11 @@ export default function RootLayout({
       <body
         className={`${electrolize.variable} ${bungeeShade.variable} antialiased`}
       >
-        <Header />
-        {children}
-        <Footer />
+        <Provider>
+          <Header />
+          {children}
+          <Footer />
+        </Provider>
       </body>
     </html>
   );
