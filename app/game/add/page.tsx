@@ -1,11 +1,11 @@
 import GameCard from "@/components/Cards/GameCard";
 import GameForm from "@/components/Forms/GameForm";
-import { getPopularGamesServer, searchGamesServer } from "@/lib/rawg";
+import { getPopularGames, searchGames } from "@/lib/rawg";
 
 export default async function AddGame({ searchParams }: {searchParams: {q?: string}}) {
     const params = await searchParams
     const query = params.q || "";
-    const games: any[] = query ? await searchGamesServer(query) : await getPopularGamesServer();
+    const games: any[] = query ? await searchGames(query) : await getPopularGames();
 
     return (
         <div className="page">

@@ -1,11 +1,11 @@
 import MovieForm from "@/components/Forms/MovieForm";
 import MovieCard from "@/components/Cards/MovieCard";
-import { getPopularMoviesServer, searchMoviesServer } from "@/lib/tmdb";
+import { getPopularMovies, searchMovies } from "@/lib/tmdb";
 
 export default async function AddMovie({searchParams}: {searchParams: {q?: string}}) {
     const params = await searchParams;
     const query = params.q || "";
-    const movies: any[] = query ? await searchMoviesServer(query) : await getPopularMoviesServer();
+    const movies: any[] = query ? await searchMovies(query) : await getPopularMovies();
 
     return (
         <div className="page">
