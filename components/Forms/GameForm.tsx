@@ -1,38 +1,22 @@
 'use client'
 
-import { getPopularGames } from "@/lib/rawg";
-import { useEffect } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
+import { useEffect, useState } from "react";
 
-interface GameFormProps {
-    query: string;
-    setQuery: (value: string) => void;
-    setGames: (Games: any[]) => void;
-    setError: (error: string) => void;
-    onSearch: (query: string) => void;
-}
-
-export default function GameForm({ query, setQuery, setGames, setError, onSearch }: GameFormProps) {
-
-    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-        e.preventDefault()
-        onSearch(query)
-    }
+export default function GameForm() {
+    const router = useRouter();
+    const searchParams = useSearchParams();
+    const initialQuery = searchParams.get("q") || "";
+    const [query, setQuery] = useState(initialQuery);
 
     useEffect(() => {
-        if (query === '') {
-            const fetchPopular = async () => {
-                setError('');
-                try {
-                    const results = await getPopularGames();
-                    setGames(results);
-                } catch (err: any) {
-                    setError(err.message || 'Error fetching popular games');
-                }
-            }
+        setQuery(initialQuery);
+    }, [initialQuery]);
 
-            fetchPopular();
-        }
-    }, [query]);
+    const handleSubmit = (e: React.FormEvent) => {
+        e.preventDefault();
+        router.push(`/game/add?q=${encodeURIComponent(query)}`);
+    };
 
     return (
         <form onSubmit={handleSubmit}>

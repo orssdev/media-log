@@ -1,38 +1,24 @@
 'use client'
 
-import { getPopularMovies } from "@/lib/tmdb";
-import { useEffect } from "react";
+import { useSearchParams, useRouter} from "next/navigation";
+import { useEffect, useState } from "react";
 
-interface MovieFormProps {
-    query: string;
-    setQuery: (value: string) => void;
-    setMovies: (movies: any[]) => void;
-    setError: (error: string) => void;
-    onSearch: (query: string) => void;
-}
-
-export default function MovieForm({ query, setQuery, setMovies, setError, onSearch }: MovieFormProps) {
-
-    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-        e.preventDefault()
-        onSearch(query)
-    }
+export default function MovieForm() {
+    const router = useRouter();
+    const searchParams = useSearchParams();
+    const initialQuery = searchParams.get("q") || "";
+    const [query, setQuery] = useState(initialQuery);
 
     useEffect(() => {
-        if (query === '') {
-            const fetchPopular = async () => {
-                setError('');
-                try {
-                    const results = await getPopularMovies();
-                    setMovies(results);
-                } catch (err: any) {
-                    setError(err.message || 'Error fetching popular movies');
-                }
-            }
+        setQuery(initialQuery);
+    }, [initialQuery]);
+    
+    const handleSubmit = (e: React.FormEvent) => {
+        e.preventDefault();
+        router.push(`/movie/add?q=${encodeURIComponent(query)}`);
+    };
 
-            fetchPopular();
-        }
-    }, [query]);
+    
 
     return (
         <form onSubmit={handleSubmit}>
