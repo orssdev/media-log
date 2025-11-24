@@ -15,7 +15,7 @@ export default function MovieForm() {
     
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
-        router.push(`/movie/search?q=${encodeURIComponent(query)}`);
+        router.push(`/movie/add?q=${encodeURIComponent(query)}`);
     };
 
     

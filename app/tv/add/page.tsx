@@ -2,7 +2,7 @@ import { getPopularShows, searchTvShows} from "@/lib/tmdb";
 import TVShowForm from "@/components/Forms/TVShowForm";
 import TVShowCard from "@/components/Cards/TVShowCard";
 
-export default async function AddTVShow({searchParams}: {searchParams: {q?: string}}) {
+export default async function SearchTVShow({searchParams}: {searchParams: {q?: string}}) {
     const params = await searchParams;
     const query = params.q || '';
     const shows: any[] = query ? await searchTvShows(query) : await getPopularShows();

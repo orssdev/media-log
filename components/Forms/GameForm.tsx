@@ -15,7 +15,7 @@ export default function GameForm() {
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
-        router.push(`/game/search?q=${encodeURIComponent(query)}`);
+        router.push(`/game/add?q=${encodeURIComponent(query)}`);
     };
 
     return (
